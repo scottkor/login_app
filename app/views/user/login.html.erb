@@ -1,0 +1,10 @@
+<h1> Log In </h1>
+
+<div class="notice"><%= flash[:notice] %></div>
+<% form_tag(url_for(:action => "do_login"), :method => "post") do %>
+  Username: <%= text_field_tag("username") %><br />
+  Password: <%= password_field_tag("password") %><br />
+  <%= submit_tag("Log In") %>
+  
+<p>Not registered? <%= link_to("Sign up", url_for(:controller => "user", :action => "new")) %></p>
+<% end %>

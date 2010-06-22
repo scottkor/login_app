@@ -1,0 +1,11 @@
+<h1> <%= @user.real_name %> </h1>
+
+Posts:
+<% @user.tweets.each do |tweet| %>
+  <div class="tweet"><%= tweet.content %></div>
+  <span style="font-size: small;">Posted at <%= tweet.posted %> </span>
+  <hr />
+<% end %>
+
+<br />
+<%= link_to("Public Posts", url_for(:action => "index")) %>

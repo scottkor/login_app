@@ -1,0 +1,12 @@
+<h1> Create a New user</h1>
+
+<% form_for(:user, @user, :url => url_for(:action => "create")) do |f| %>
+  <%= f.error_messages %>
+  <%= f.label :username, "Username:" %> <%= f.text_field :username %><br />
+  <%= f.label :real_name, "Real Name:" %> <%= f.text_field :real_name %><br />
+  <%= f.label :password, "Password:" %> <%= f.password_field :password %><br />
+  <%= f.label :password_confirmation, "Confirm Password:" %> <%= f.password_field :password_confirmation %><br />
+  <%= submit_tag("Create User") %>
+<% end %>
+<hr />
+<%= link_to("Cancel", url_for(:controller => "tweets", :action => "index")) %>

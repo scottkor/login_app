@@ -1,0 +1,10 @@
+<h1> Submit a new Post </h1>
+
+What's happening? <br />
+<% form_for(:tweet, @tweet, :url => url_for(:action => "post")) do |f| %>
+  <%= f.error_messages %>
+  <%= f.text_area :content, :rows => 3, :cols => 70 %>
+  <%= submit_tag("Post!") %>
+<% end %>
+<br />
+<%= link_to("Back to the List of Public Posts", url_for(:action => "index")) %>

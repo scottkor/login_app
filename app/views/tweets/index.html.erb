@@ -1,0 +1,24 @@
+<h1> Authentication Test Application </h1>
+
+<%= link_to("Add a New Post", url_for(:action => "new")) %><br /><br />
+
+Public Timeline: <br />
+<% @tweet_list.each do |tweet| %>
+  <div class="tweet"><%= tweet.content %></div>
+  <span style="font-size: small;">
+    Posted at <%= tweet.posted %>
+    <% unless tweet.user.nil? %>
+      by <%= link_to(tweet.user.username, url_for(:action => "user", :id => tweet.user.id)) %>
+    <% end %>
+  </span>
+  <hr />
+  
+<% end %>
+
+<% if @page > 1 %>
+  <%= link_to("Previous Page", url_for(:action => "index", :page => @page - 1)) %>
+<% end %>
+<%= link_to("Next Page", url_for(:action => "index", :page => @page + 1)) %>
+
+<hr />
+<%= link_to("Log Out", url_for(:controller => "user", :action => "logout")) %>
